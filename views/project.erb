@@ -1,6 +1,16 @@
 <div class="row">
   <div class ="col-lg">
     <h2><%= @project.title %></h2>
+    <% if @volunteers.any? %>
+      <ul>
+        <% @volunteers.each do |vol| %>
+          <li><%= vol.name %></li>
+        <% end %>
+      </ul>
+      <% else %>
+      <p>No volunteers currently assigned</p>
+    <% end %>
+
   </div>
   <div class="col-sm">
     <h2>Edit Project Options</h2>
@@ -12,6 +22,15 @@
       </div>
       <button type="submit"class="btn btn-primary">Update Project</button>
     </form>
+    <br>
+    <h2>Add a Volunteer<h2>
+      <form action="/project/<%= @project.id %>/add_vol" method="post">
+        <div class="form-group">
+          <label for="name">Volunteer Name</label>
+          <input reqiured id="n" name="name" class="form-control" type="text">
+        </div>
+        <button type="submit"class="btn btn-primary">Add Volunteer</button>
+      </form>
     <br>
     <form action="/project/<%= @project.id %>/delete" method="post">
       <input name="_method" type="hidden" value="delete">
