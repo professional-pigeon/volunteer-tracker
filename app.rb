@@ -42,3 +42,15 @@ post('/project/:id/add_vol') do
   volunteer.save
   redirect to("/project/#{volunteer.project_id}")
 end
+
+get('/volunteer/:id') do
+  @volunteer = Volunteer.find(params[:id])
+  @project = Project.find(@volunteer.project_id)
+  erb(:volunteer)
+end
+
+patch('/volunteer/:id/edit') do
+  volunteer = Volunteer.find(params[:id])
+  volunteer.update({:name => params[:name], :id => nil})
+  redirect to("/project/#{volunteer.project_id}")
+end

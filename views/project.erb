@@ -4,7 +4,7 @@
     <% if @volunteers.any? %>
       <ul>
         <% @volunteers.each do |vol| %>
-          <li><%= vol.name %></li>
+          <li><a href="/volunteer/<%= vol.id %>"><%= vol.name %></a></li>
         <% end %>
       </ul>
       <% else %>
@@ -39,4 +39,4 @@
   </div>
 </div>
 
-<a href="/">Return to Main</a>
+<a href="/"><button class='btn-primary'>Return to Main</button></a>

@@ -1,0 +1,12 @@
+<h2>Info For: <%= @volunteer.name %></h2>
+
+<h4>Currently assigned to <%= @project.title%></h4>
+
+<form action="/volunteer/<%= @volunteer.id %>/edit" method="post">
+  <div class="form-group">
+    <input name="_method" type="hidden" value="patch">
+    <label for="name">Edit Volunteer Name</label>
+    <input reqiured id="n" name="name" class="form-control" type="text">
+  </div>
+  <button type="submit"class="btn btn-primary">Update Volunteer</button>
+</form>
