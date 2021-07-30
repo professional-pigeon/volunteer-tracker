@@ -22,6 +22,14 @@ class Project
     @id = result.first.fetch('id').to_i
   end
 
+  def ==(proj_to_compare)
+    self.title == proj_to_compare.title
+  end
+
+  def self.clear
+    DB.exec("DELETE FROM projects *;")
+  end
+
 
 
 
