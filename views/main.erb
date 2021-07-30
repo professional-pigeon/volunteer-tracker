@@ -1,3 +1,21 @@
-<h6>Organizer: Projects to Volunteers</h6>
+<h1>Organizer: Projects to Volunteers</h1>
 
-<>
+<div class="row">
+  <div class="col-md">
+    <h2>Project List</h2>
+    <% if @projects.any? %>
+      <ul>
+        <% @projects.each do |proj| %>
+          <li><a href="projects/<%= proj.id %>"><%= proj.title %></a></li>
+        <% end %>
+      </ul>
+      <% else %>
+        <p>There are no projects available at this time.</p>
+    <% end %>
+  </div>
+  <div class="col-md">
+    <h2>Add a project<h2>
+    <form>
+    </form>
+  </div>
+</div>
