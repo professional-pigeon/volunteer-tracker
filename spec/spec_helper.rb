@@ -13,7 +13,6 @@ RSpec.configure do |config|
   end
 end
 
-
 describe Project do
 
   describe '#title' do
