@@ -3,15 +3,18 @@
     <h2><%= @project.title %></h2>
     <% if @volunteers.any? %>
     <p>Here are the volunteers currently assigned: click to edit.
-      <ul>
-        <% @volunteers.each do |vol| %>
-          <li><a href="/volunteer/<%= vol.id %>"><%= vol.name %></a></li>
-        <% end %>
-      </ul>
-      <% else %>
+      <% @volunteers.each do |vol| %>
+        <div class="col-sm-3 g-3">
+          <div class="card">
+            <div class="card-body" id="proj-card">
+              <h5 class="card-title"><a href="/volunteer/<%= vol.id %>"><%= vol.name %></a></h5>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
       <p>No volunteers currently assigned</p>
     <% end %>
-
   </div>
   <div class="col-sm">
     <h2>Edit Project Options</h2>

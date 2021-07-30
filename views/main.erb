@@ -6,15 +6,18 @@
   <div class="col-md">
     <h2>Project List</h2>
     <% if @projects.any? %>
-      <ul>
-        <% @projects.each do |proj| %>
-          <li><a href="project/<%= proj.id %>"><%= proj.title %></a></li>
-        <% end %>
-      </ul>
-      <% else %>
-        <p>There are no projects available at this time.</p>
+      <% @projects.each do |proj| %>
+        <div class="col">
+          <div class="card" id="proj-card">
+            <div class="card-body">
+              <h5 class="card-title"><a href="/project/<%= proj.id %>"><%= proj.title %></a></h5>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <p>There are no projects available at this time.</p>
     <% end %>
-
   </div>
   <div class="col-md">
     <h2>Add a project<h2>
