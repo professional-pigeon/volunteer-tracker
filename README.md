@@ -8,8 +8,6 @@
 - [Technologies Used](#technologies-used)
 - [Description](#description)
 - [Setup/Installation Requirements](#setup/installation-requirements)
-- [Known Bugs](#known-bugs)
-- [Valid Word Tests](#valid-word-tests)
 - [Future Plans](#future-plans)
 - [License](#license)
 - [Contact Information](#contact-information)
@@ -32,7 +30,13 @@ This is a program dedicated to creating projects and then adding volunteers to t
 * Clone this repository from github to your desktop: [Github link for this project](https://github.com/professional-pigeon/Vocab_charity)
 * navigate to the top level of the directory
 * run "gem install bundler" then "bundle install" in your terminal
-* To run tests run "rspec" in your terminal
+* Install [postgreSQL](https://www.postgresql.org/) using instructions for your OS on their website.
+* To use application you'll need to open a postgres server in a terminal
+* run these commands direcly in the terminal line to recreate the SQL database and test database.
+    - createdb volunteer_tracker
+    - psql volunteer_tracker < database_backup.sql
+    - createdb -T volunteer_tracker volunteer_tracker_test
+* in your terminal you can run 'rspec' to run all tests, and 'ruby app.rb' to run the website while your postgres server is running.
 
 ## License
 
