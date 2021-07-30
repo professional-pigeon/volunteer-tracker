@@ -9,12 +9,12 @@ class Project
   def self.all
     returned_projects = DB.exec("SELECT * FROM projects;")
     projects = []
-    returned_projects.each() do |projects|
+    returned_projects.each() do |project|
       name = project.fetch("name")
       id = project.fetch("id").to_i
       project.push(Album.new({ :title => title, :id => id}))
     end
-    project
+    projects
   end
 
   def save
