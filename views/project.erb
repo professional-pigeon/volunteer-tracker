@@ -1,10 +1,11 @@
 <div class="row">
-  <div class ="col-lg">
+  <div class ="col-md-8">
     <h2><%= @project.title %></h2>
     <% if @volunteers.any? %>
     <p>Here are the volunteers currently assigned: click to edit.
+    <div class="row row-cols-3">
       <% @volunteers.each do |vol| %>
-        <div class="col-sm-3 g-3">
+        <div class="col">
           <div class="card">
             <div class="card-body" id="proj-card">
               <h5 class="card-title"><a href="/volunteer/<%= vol.id %>"><%= vol.name %></a></h5>
@@ -12,6 +13,9 @@
           </div>
         </div>
       <% end %>
+    </div>
+    <br>
+    <a href="/"><button class='btn-primary'>Return to Main</button></a>
     <% else %>
       <p>No volunteers currently assigned</p>
     <% end %>
@@ -27,6 +31,11 @@
       <button type="submit"class="btn btn-primary">Update Project</button>
     </form>
     <br>
+    <form action="/project/<%= @project.id %>/delete" method="post">
+      <input name="_method" type="hidden" value="delete">
+      <button type="submit"class="btn btn-warning">Delete Project</button>
+    </form>
+    <br>
     <h2>Add a New Volunteer to Project<h2>
       <form action="/project/<%= @project.id %>/add_vol" method="post">
         <div class="form-group">
@@ -35,12 +44,6 @@
         </div>
         <button type="submit"class="btn btn-primary">Add Volunteer</button>
       </form>
-    <br>
-    <form action="/project/<%= @project.id %>/delete" method="post">
-      <input name="_method" type="hidden" value="delete">
-      <button type="submit"class="btn btn-warning">Delete Project</button>
-    </form>
   </div>
 </div>
 
-<a href="/"><button class='btn-primary'>Return to Main</button></a>

@@ -3,18 +3,20 @@
 </div>
 
 <div class="row">
-  <div class="col-md">
+  <div class="col-md-8">
     <h2>Project List</h2>
     <% if @projects.any? %>
-      <% @projects.each do |proj| %>
-        <div class="col">
-          <div class="card" id="proj-card">
-            <div class="card-body">
-              <h5 class="card-title"><a href="/project/<%= proj.id %>"><%= proj.title %></a></h5>
+      <div class="row row-cols-3">
+        <% @projects.each do |proj| %>
+          <div class="col">
+            <div class="card" id="proj-card">
+              <div class="card-body">
+                <h5 class="card-title"><a href="/project/<%= proj.id %>"><%= proj.title %></a></h5>
+              </div>
             </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     <% else %>
       <p>There are no projects available at this time.</p>
     <% end %>
