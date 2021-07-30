@@ -6,7 +6,7 @@
     <% if @projects.any? %>
       <ul>
         <% @projects.each do |proj| %>
-          <li><a href="projects/<%= proj.id %>"><%= proj.title %></a></li>
+          <li><a href="project/<%= proj.id %>"><%= proj.title %></a></li>
         <% end %>
       </ul>
       <% else %>
@@ -15,7 +15,12 @@
   </div>
   <div class="col-md">
     <h2>Add a project<h2>
-    <form>
-    </form>
+      <form action="/projects" method="post">
+        <div class="form-group">
+          <label for="project_title">Project Name</label>
+          <input reqiured id="n" name="project_title" class="form-control" type="text">
+        </div>
+        <button type="submit"class="btn btn-primary">Create Project</button>
+      </form>
   </div>
 </div>
