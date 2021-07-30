@@ -9,3 +9,7 @@ body {
 .card-body {
   background: rgb(236, 239, 244);
 }
+
+#main-center {
+  text-align: center;
+}
