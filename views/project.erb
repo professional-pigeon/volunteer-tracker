@@ -2,6 +2,7 @@
   <div class ="col-lg">
     <h2><%= @project.title %></h2>
     <% if @volunteers.any? %>
+    <p>Here are the volunteers currently assigned: click to edit.
       <ul>
         <% @volunteers.each do |vol| %>
           <li><a href="/volunteer/<%= vol.id %>"><%= vol.name %></a></li>
@@ -23,7 +24,7 @@
       <button type="submit"class="btn btn-primary">Update Project</button>
     </form>
     <br>
-    <h2>Add a Volunteer<h2>
+    <h2>Add a New Volunteer to Project<h2>
       <form action="/project/<%= @project.id %>/add_vol" method="post">
         <div class="form-group">
           <label for="name">Volunteer Name</label>

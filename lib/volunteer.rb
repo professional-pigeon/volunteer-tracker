@@ -42,6 +42,18 @@ class Volunteer
       false
     end
   end
+  
+  def self.find_by_name(name)
+    volunteer = DB.exec("SELECT * FROM volunteers WHERE lower(name) = '#{name.downcase}'';").first
+    if volunteer
+      name = volunteer.fetch("name")
+      id = volunteer.fetch("id").to_i
+      project_id = volunteer.fetch("project_id").to_i
+      Volunteer.new({ :name => name, :id => id, :project_id => project_id})
+    else
+      false
+    end
+  end
 
   def delete
     DB.exec("DELETE FROM volunteers WHERE id = #{@id};")

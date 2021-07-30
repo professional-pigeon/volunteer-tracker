@@ -10,3 +10,8 @@
   </div>
   <button type="submit"class="btn btn-primary">Update Volunteer</button>
 </form>
+
+<form action="/volunteer/<%= @volunteer.id %>/delete" method="post">
+  <input name="_method" type="hidden" value="delete">
+  <button type="submit"class="btn btn-warning">Delete Volunteer</button>
+</form>
