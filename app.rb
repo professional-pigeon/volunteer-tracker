@@ -14,8 +14,10 @@ get('/') do
 end
 
 post('/projects') do
+  if params[:project_title] != ""
   proj_obj = Project.new({:title => params[:project_title], :id => nil})
   proj_obj.save
+  end
   redirect to ('/')
 end
 
@@ -27,7 +29,9 @@ end
 
 patch('/project/:id/edit') do
   project = Project.find(params[:id].to_i)
-  project.update({:title => params[:project_title], :id => nil})
+  if params[:project_title] != ""
+    project.update({:title => params[:project_title], :id => nil})
+  end
   redirect to("/project/#{project.id}")
 end
 
@@ -38,9 +42,11 @@ delete('/project/:id/delete') do
 end
 
 post('/project/:id/add_vol') do
-  volunteer = Volunteer.new(:name => params[:name], :id => nil, :project_id => params[:id])
-  volunteer.save
-  redirect to("/project/#{volunteer.project_id}")
+  if params[:name] != ""
+    volunteer = Volunteer.new(:name => params[:name], :id => nil, :project_id => params[:id])
+    volunteer.save
+  end
+  redirect to("/project/#{params[:id]}")
 end
 
 get('/volunteer/:id') do
@@ -51,7 +57,9 @@ end
 
 patch('/volunteer/:id/edit') do
   volunteer = Volunteer.find(params[:id])
-  volunteer.update({:name => params[:name], :id => nil})
+  if params[:name] != ""
+    volunteer.update({:name => params[:name], :id => nil})
+  end
   redirect to("/project/#{volunteer.project_id}")
 end
 
