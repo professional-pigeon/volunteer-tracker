@@ -27,12 +27,12 @@ describe 'the project update path', {:type => :feature} do
     test_project.save
     visit '/'
     click_link('Teaching Kids to Code')
-    click_link('Edit Project')
+    # click_link('Edit Project')
     fill_in('project_title', :with => 'Teaching Ruby to Kids')
     click_button('Update Project')
     expect(page).to have_content('Teaching Ruby to Kids')
   end
-# end
+end
 
 # A user should be able to nagivate to a project's detail page and delete the project. The user will then be directed to the index page. The project should no longer be on the list of projects.
 
