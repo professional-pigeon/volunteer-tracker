@@ -97,9 +97,9 @@ describe Project do
 
   describe '#delete' do
     it 'allows a user to delete a project and all associated volunteers' do
-      project = Project.new({:title => 'Teaching Kids to Code', :id => 100})
+      project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
       project.save
-      volunteer1 = Volunteer.new({:name => 'Jane', :project_id => 100, :id => nil})
+      volunteer1 = Volunteer.new({:name => 'Jane', :project_id => project.id, :id => nil})
       volunteer1.save
       project.delete
       expect(Volunteer.all).to eq []
