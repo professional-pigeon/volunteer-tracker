@@ -28,7 +28,7 @@ describe 'the project update path', {:type => :feature} do
     visit '/'
     click_link('Teaching Kids to Code')
     click_link('Edit Project')
-    fill_in('title', :with => 'Teaching Ruby to Kids')
+    fill_in('project_title', :with => 'Teaching Ruby to Kids')
     click_button('Update Project')
     expect(page).to have_content('Teaching Ruby to Kids')
   end
