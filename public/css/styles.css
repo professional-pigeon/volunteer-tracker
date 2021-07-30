@@ -1,0 +1,7 @@
+body {
+  background: linear-gradient(144deg, rgb(210, 105, 210), rgb(139, 238, 238));
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-position-y: bottom;
+  min-height: 100vh;
+}
