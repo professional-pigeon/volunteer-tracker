@@ -5,3 +5,7 @@ body {
   background-position-y: bottom;
   min-height: 100vh;
 }
+
+.card-body {
+  background: rgb(236, 239, 244);
+}
